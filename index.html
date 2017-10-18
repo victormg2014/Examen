@@ -9,9 +9,7 @@
 
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-<script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"
-    integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="
-    crossorigin=""></script>
+<script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"></script>
 <script src="https://rawgit.com/Leaflet/Leaflet.heat/gh-pages/dist/leaflet-heat.js"></script>
 <script src="https://unpkg.com/esri-leaflet-heatmap@2.0.0"></script>
    <script>
@@ -21,7 +19,7 @@
 	function errorLocalizacion(e){
 	    alert("No es posible encontrar su ubicación");
 	}
-        var map = L.map('map').setView([37.229462, -3.654336], 14);
+        var map = L.map('map').setView([37.229462, -3.654336], 5);
         mapLink = 
             '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 	L.tileLayer(
@@ -38,9 +36,9 @@
 	    L.marker(e.latlng).addTo(map);
 	}
 	L.esri.Heat.featureLayer({
-    url: 'https://services.arcgis.com/rOo16HdIMeOBI4Mb/ArcGIS/rest/services/Graffiti_Reports/FeatureServer/0',
-    radius: 12
-  }).addTo(map);
+    		url: 'https://services.arcgis.com/rOo16HdIMeOBI4Mb/ArcGIS/rest/services/Graffiti_Reports/FeatureServer/0',
+    		radius: 30
+  	}).addTo(map);
     </script>
 </body>
 </html>
