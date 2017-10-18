@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocalizacion</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="map" style="width: 600px; height: 400px"></div>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    
+   <script>
+	function buscarLocalizacion(e) {
+	    L.marker(e.latlng).addTo(map);
+	}
+	function errorLocalizacion(e){
+	    alert("No es posible encontrar su ubicación");
+	}
+        var map = L.map('map').setView([37.147124, -3.571165], 14);
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(map);
+	map.on('locationerror', errorLocalizacion);
+	map.on('locationfound', buscarLocalizacion);
+	map.locate({setView: true, maxZoom:12});
+	function buscarLocalizacion(e) {
+	    L.marker(e.latlng).addTo(map);
+	}
+    </script>
+</body>
+</html>
